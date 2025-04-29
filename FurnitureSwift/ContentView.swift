@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var currentTab: Tab = .Home
 
     init() {
-        // Hide the default iOS tab bar since we're creating a custom one
+        // Hide "the default iOS tab bar" since we're creating a custom one !!
         UITabBar.appearance().isHidden = true
     }
     
@@ -155,8 +155,7 @@ enum Tab: String, CaseIterable {
 extension View {
     func getSafeArea() -> UIEdgeInsets {
         // Get the first connected scene
-        guard let screen = UIApplication.shared.connectedScenes.first as?
-                UIWindowScene else {
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return .zero // Return zero insets if no scene is found
         }
         // Get the safe area insets from the first window
