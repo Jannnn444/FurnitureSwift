@@ -48,3 +48,5 @@ struct ImageSliderView: View {
 #Preview {
     ImageSliderView()
 }
+
+// config name Jannnn444
