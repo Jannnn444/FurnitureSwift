@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    // This line creates and manages the shared CartManager instance
+    @StateObject var cartManager = CartManager()
     // State variable to track which tab is currently active
     @State var currentTab: Tab = .Home
 
@@ -123,7 +125,16 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(CartManager())
 }
+/*
+WHY .environmentObject() in the Preview?
+---------------------------------------
+1. For the preview to work correctly, we need to inject a CartManager
+2. This simulates what happens in the real app where ContentView creates and passes the CartManager
+3. Without this, any view using @EnvironmentObject would crash in preview mode
+4. This is ONLY needed for preview - in the actual app, ContentView's @StateObject handles this
+*/
 
 // Enum defining all possible tabs
 enum Tab: String, CaseIterable {
@@ -181,3 +192,26 @@ struct MaterialEffect: UIViewRepresentable {
         // No updates needed
     }
 }
+
+
+/*
+WHY @StateObject?
+----------------
+1. @StateObject is used to create and manage an ObservableObject (CartManager) instance
+2. @StateObject ensures the CartManager is created ONCE and persists for the lifetime of ContentView
+3. If we used @State instead, the CartManager would not be properly retained between view updates
+4. @StateObject is specifically designed for reference types (classes) that conform to ObservableObject
+
+WHY CartManager needs to be an ObservableObject?
+-----------------------------------------------
+1. When cart data changes (adding/removing products), we need the UI to update automatically
+2. ObservableObject + @Published properties create a reactive system where UI responds to data changes
+3. This implements the MVVM pattern (Model-View-ViewModel) where CartManager is the ViewModel
+
+The flow of data works like this:
+1. ContentView creates the CartManager with @StateObject
+2. ContentView passes the CartManager to child views using .environmentObject(cartManager)
+3. Child views like ProductCartView access this shared instance with @EnvironmentObject
+4. When any view modifies the cart data, all views using @EnvironmentObject get updated
+*/
+
