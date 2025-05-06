@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCartView: View {
     @EnvironmentObject var cartManager: CartManager
-    
+    var product : Product
     /*
      @EnvironmentObject allows this view to access a shared instance of CartManager
      that was placed higher up in the view hierarchy (typically in thr main ContentView)
@@ -25,7 +25,25 @@ struct ProductCartView: View {
                 
             ZStack(alignment: .bottomTrailing) {
                 VStack(alignment: .leading) {
+                    Image(product.image)
+                        .resizable()
+                        .frame(width: 175, height: 160)
+                        .cornerRadius(12)
+                    
+                    Text(product.name)
+                        .font(.headline)
+                        .padding(.vertical, 1)
+                    
+                    Text(product.supplier)
+                        .foregroundStyle(.gray)
+                        .font(.caption)
+                        .padding(.vertical, 0.5)
+                    
+                    Text("$ \(product.price)")
+                        .bold()
+                }
                     Button(action: {
+                        cartManager.addToCart(product: product)
                         // This button would likely call cartManager.addToCart() in a real implementation
                         // Since all views share the same cartManager object, any changes made here
                         // would be visible to all other views using this EnvironmentObject
@@ -34,8 +52,9 @@ struct ProductCartView: View {
                             .resizable()
                             .foregroundColor(.kPrimary)
                             .frame(width: 35, height: 35)
+                            .padding(.trailing)
                     })
-                }
+                
             }
         }
         .frame(width: 185, height: 260) //blue area
@@ -43,11 +62,13 @@ struct ProductCartView: View {
     }
 }
 
-#Preview {
-    ProductCartView()
-        .environmentObject(CartManager())
-}
-
+// table tooo high is a majpor big prob
+// so when the time is not alright
 // For the preview to work, we must provide a CartManager
 // This creates a temporary CartManager just for the preview
 // In the real app, this would be provided by a parent view
+
+#Preview {
+    ProductCartView(product: productList[0])
+        .environmentObject(CartManager())
+}

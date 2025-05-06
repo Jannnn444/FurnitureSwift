@@ -10,8 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     // This line creates and manages the shared CartManager instance
+    
+    /*
+     Best Practice for CartManager
+     The best practice (which your code follows) is:
+
+     Create CartManager once using @StateObject in your app's main view (ContentView) ~~
+     Pass it down via .environmentObject(cartManager) from ContentView !!
+     Access it with @EnvironmentObject in all child views that need it ~~~
+     */
     @StateObject var cartManager = CartManager()
-    // State variable to track which tab is currently active
     @State var currentTab: Tab = .Home
 
     init() {
@@ -215,3 +223,6 @@ The flow of data works like this:
 4. When any view modifies the cart data, all views using @EnvironmentObject get updated
 */
 
+#Preview {
+    ContentView()
+}

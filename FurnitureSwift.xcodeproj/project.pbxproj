@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E6EAC5B2DCA174F00634F1E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EAC5A2DCA174F00634F1E /* CartButton.swift */; };
+		1E6EAC5E2DCA18BA00634F1E /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EAC5D2DCA18BA00634F1E /* HomePage.swift */; };
 		1EC024B42DC0CE2700F77448 /* FurnitureSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024B32DC0CE2700F77448 /* FurnitureSwiftApp.swift */; };
 		1EC024B62DC0CE2700F77448 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024B52DC0CE2700F77448 /* ContentView.swift */; };
 		1EC024B82DC0CE2800F77448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC024B72DC0CE2800F77448 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E6EAC5A2DCA174F00634F1E /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		1E6EAC5D2DCA18BA00634F1E /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		1EC024B02DC0CE2700F77448 /* FurnitureSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FurnitureSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC024B32DC0CE2700F77448 /* FurnitureSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureSwiftApp.swift; sourceTree = "<group>"; };
 		1EC024B52DC0CE2700F77448 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,9 +46,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E6EAC5C2DCA188800634F1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E6EAC5D2DCA18BA00634F1E /* HomePage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1EC024A72DC0CE2700F77448 = {
 			isa = PBXGroup;
 			children = (
+				1E6EAC5C2DCA188800634F1E /* Views */,
 				1EC024E42DC106FC00F77448 /* Models */,
 				1EC024E32DC106E700F77448 /* Components */,
 				1EC024B22DC0CE2700F77448 /* FurnitureSwift */,
@@ -85,6 +98,7 @@
 				1EC024E12DC106A500F77448 /* ImageSliderView.swift */,
 				1EC024EB2DC10C9200F77448 /* SearchView.swift */,
 				1EC024E92DC10C8200F77448 /* ProductCartView.swift */,
+				1E6EAC5A2DCA174F00634F1E /* CartButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -169,6 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC024E22DC106A500F77448 /* ImageSliderView.swift in Sources */,
+				1E6EAC5E2DCA18BA00634F1E /* HomePage.swift in Sources */,
+				1E6EAC5B2DCA174F00634F1E /* CartButton.swift in Sources */,
 				1EC024F42DC23BD900F77448 /* CartManager.swift in Sources */,
 				1EC024E62DC1071200F77448 /* Product.swift in Sources */,
 				1EC024B62DC0CE2700F77448 /* ContentView.swift in Sources */,
