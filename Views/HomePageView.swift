@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomePage: View {
+struct HomePageView: View {
     @EnvironmentObject var cartmanager: CartManager
     var body: some View {
         
@@ -26,6 +26,7 @@ struct HomePage: View {
                         Text("Shanghai, China")
                             .font(.title2)
                             .foregroundStyle(.gray)
+                        
                         Spacer()
                         
                         NavigationLink(destination: Text("")) {
@@ -41,5 +42,6 @@ struct HomePage: View {
 }
 
 #Preview {
-    HomePage()
+    HomePageView()
+        .environmentObject(CartManager())
 }
