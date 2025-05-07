@@ -17,25 +17,15 @@ struct HomePageView: View {
             
             VStack {
                 VStack(alignment: .leading) {
-                    NavigationStack {
-                    HStack{
-                        Image(systemName: "location.north.fill")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding(.trailing)
-                        Text("Shanghai, China")
-                            .font(.title2)
-                            .foregroundStyle(.gray)
-                        
-                        Spacer()
-                        
-                        NavigationLink(destination: Text("")) {
-                            CartButton(numberOfProducts: cartmanager.products.count)
-                        }
-                    }
-                 }
+                    AppBar()
+                    
+                    SearchView()
+                    
+                    ImageSliderView()
                 }
+                .padding()
             }
+          
         }
     
     }
@@ -44,4 +34,38 @@ struct HomePageView: View {
 #Preview {
     HomePageView()
         .environmentObject(CartManager())
+}
+
+struct AppBar: View {
+    @EnvironmentObject var cartmanager: CartManager
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading) {
+            HStack {
+                Image(systemName: "location.north.fill")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing)
+                Text("Shanghai, China")
+                    .font(.title2)
+                    .foregroundStyle(.gray)
+                
+                Spacer()
+                
+                NavigationLink(destination: Text("")) {
+                    CartButton(numberOfProducts: cartmanager.products.count)
+                }
+            }
+                Text("Find the Most\nLuxurios")
+                    .font(.largeTitle.bold())
+                
+                + Text(" Furniture")
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.kPrimary)
+        }
+            
+        }
+        .padding()
+        .environmentObject(CartManager())
+    }
 }
