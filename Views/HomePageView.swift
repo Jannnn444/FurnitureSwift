@@ -10,7 +10,7 @@ import SwiftUI
 struct HomePageView: View {
     @EnvironmentObject var cartmanager: CartManager
     var body: some View {
-        
+        NavigationStack {
         ZStack(alignment: .top) {
             Color.white
                 .edgesIgnoringSafeArea(.all)
@@ -22,12 +22,33 @@ struct HomePageView: View {
                     SearchView()
                     
                     ImageSliderView()
+                    
+                    HStack {
+                        Text("New Arrivals")
+                            .font(.title2)
+                            .fontWeight(.medium)
+                        Spacer()
+                        Image(systemName: "circle.grid.2x2.fill")
+                            .foregroundColor(.kPrimary)
+                    }
+                    .padding()
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(productList, id: \.id) { product in
+                                NavigationLink{
+                                    
+                                } label: {
+                                    ProductCartView(product: product)
+                                }
+                            }
+                        }
+                    }
                 }
                 .padding()
             }
-          
+            
         }
-    
+    }
     }
 }
 
