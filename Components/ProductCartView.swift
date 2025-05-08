@@ -32,6 +32,7 @@ struct ProductCartView: View {
                     
                     Text(product.name)
                         .font(.headline)
+                        .foregroundStyle(.black)
                         .padding(.vertical, 1)
                     
                     Text(product.supplier)
@@ -41,6 +42,7 @@ struct ProductCartView: View {
                     
                     Text("$ \(product.price)")
                         .bold()
+                        .foregroundStyle(.black)
                 }
                     Button(action: {
                         cartManager.addToCart(product: product)

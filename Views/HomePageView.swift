@@ -40,11 +40,10 @@ struct HomePageView: View {
                                     Text(product.name)
                                 } label: {
                                     ProductCartView(product: product)
-                                        .environmentObject(cartmanager)
-                                    // when click the +, the cart bag +1
+                                        .environmentObject(cartmanager) // + press, bag+
                                 }
                             }
-                        }
+                        }.padding(.horizontal)
                     }
                 }
                 
@@ -61,25 +60,27 @@ struct HomePageView: View {
 }
 
 struct AppBar: View {
-    @EnvironmentObject var cartmanager: CartManager
+    @EnvironmentObject var cartManager: CartManager
     var body: some View {
+        NavigationStack {
             VStack(alignment: .leading) {
-            HStack {
-                Image(systemName: "location.north.fill")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .padding(.trailing)
-                
-                Text("Shanghai, China")
-                    .font(.title2)
-                    .foregroundStyle(.gray)
-                
-                Spacer()
-                
-                NavigationLink(destination: Text("")) {
-                    CartButton(numberOfProducts: cartmanager.products.count)
+                HStack {
+                    Image(systemName: "location.north.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .padding(.trailing)
+                    
+                    Text("Shanghai, China")
+                        .font(.title2)
+                        .foregroundStyle(.gray)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: Text("")) {
+                        CartButton(numberOfProducts: cartManager.products.count)
+                    }
+                    
                 }
-            }
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Find the Most")
                         .font(.largeTitle.bold())
@@ -93,7 +94,8 @@ struct AppBar: View {
                 }
                 .lineLimit(nil)
             }
-        .padding()
-        .environmentObject(CartManager())
+            .padding()
+            .environmentObject(CartManager())
+        }
     }
 }

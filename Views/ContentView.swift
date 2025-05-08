@@ -37,10 +37,10 @@ struct ContentView: View {
           
             // Tab content views - currently just placeholder Text views
             // Each view is tagged with its corresponding Tab enum case
-            Text("Home view")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background()
-                .tag(Tab.Home)
+            
+            HomePageView()
+                .environmentObject(cartManager)
+            
             Text("Search view")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
@@ -58,7 +58,7 @@ struct ContentView: View {
                 .background()
                 .tag(Tab.Profile)
         }
-        // Custom tab bar overlay at the bottom of the screen
+        // Custom tab bar overlay at the bottom of the scree
         .overlay(
             HStack(spacing: 0){
                 // Create tab buttons for each tab case
