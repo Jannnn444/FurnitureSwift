@@ -17,7 +17,7 @@ struct HomePageView: View {
             
             VStack {
                 VStack(alignment: .leading) {
-                    AppBar()
+                    AppBar().padding(.bottom,10)
                     
                     SearchView()
                     
@@ -36,15 +36,18 @@ struct HomePageView: View {
                         HStack(spacing: 10) {
                             ForEach(productList, id: \.id) { product in
                                 NavigationLink{
-                                    
+                                    // inside the navigation UI
+                                    Text(product.name)
                                 } label: {
                                     ProductCartView(product: product)
+                                        .environmentObject(cartmanager)
+                                    // when click the +, the cart bag +1
                                 }
                             }
                         }
                     }
                 }
-                .padding()
+                
             }
             
         }
@@ -60,13 +63,13 @@ struct HomePageView: View {
 struct AppBar: View {
     @EnvironmentObject var cartmanager: CartManager
     var body: some View {
-        NavigationStack {
             VStack(alignment: .leading) {
             HStack {
                 Image(systemName: "location.north.fill")
                     .resizable()
                     .frame(width: 20, height: 20)
                     .padding(.trailing)
+                
                 Text("Shanghai, China")
                     .font(.title2)
                     .foregroundStyle(.gray)
@@ -77,15 +80,19 @@ struct AppBar: View {
                     CartButton(numberOfProducts: cartmanager.products.count)
                 }
             }
-                Text("Find the Most\nLuxurios")
-                    .font(.largeTitle.bold())
-                
-                + Text(" Furniture")
-                    .font(.largeTitle.bold())
-                    .foregroundStyle(.kPrimary)
-        }
-            
-        }
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Find the Most")
+                        .font(.largeTitle.bold())
+                    
+                    Text("Luxurios")
+                        .font(.largeTitle.bold())
+                    
+                    + Text("Furniture")
+                        .font(.largeTitle.bold())
+                        .foregroundStyle(.kPrimary)
+                }
+                .lineLimit(nil)
+            }
         .padding()
         .environmentObject(CartManager())
     }
