@@ -25,7 +25,7 @@ struct ImageSliderView: View {
             HStack {
                 ForEach(0..<sliders.count) { index in
                     Circle()
-                        .fill(self.currentIndex == index ? Color("kPrimary") : Color("kSecondary"))
+                        .fill(self.currentIndex == index ? Color.gray : Color("kSecondary"))
                         .frame(width: 10, height: 10)
                 }
             }.padding()

@@ -72,7 +72,7 @@ struct ContentView: View {
                 // If device has a bottom safe area (newer phones with notch/dynamic island), use (safeArea.bottom - 15)
                 // This ensures the tab bar looks good on all device types
                 .padding(.bottom, getSafeArea().bottom == 0 ? 5 : (getSafeArea().bottom - 15))
-                .background(Color.kSecondary)
+                .background(Color.light)
             }
             ,
             alignment: .bottom
@@ -96,7 +96,7 @@ struct ContentView: View {
                     // Tab icon - shows filled version when selected, outline when not
                     Image(systemName: currentTab == tab ? tab.rawValue + ".fill" : tab.rawValue)
                         .resizable()
-                        .foregroundColor(Color.kPrimary)
+                        .foregroundColor(Color.dark)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 25, height: 25)
                         .frame(maxWidth: .infinity)
@@ -113,7 +113,7 @@ struct ContentView: View {
                                     
                                     // Show tab name text only under the selected tab
                                     Text(tab.Tabname)
-                                        .foregroundStyle(.primary)
+                                        .foregroundStyle(.gray)
                                         .font(.footnote)
                                         .padding(.top, 50)
                                 }
@@ -123,7 +123,7 @@ struct ContentView: View {
                         .contentShape(Rectangle())
                         // Move the selected tab icon up by 15 points for a raised effect
                         // Non-selected tabs remain at y-offset 0
-                        .offset(y: currentTab == tab ? -15 : 0)
+                        .offset(y: currentTab == tab ? -10 : 0)
                 }
             })
         }

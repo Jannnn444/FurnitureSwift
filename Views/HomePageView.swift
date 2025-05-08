@@ -31,7 +31,7 @@ struct HomePageView: View {
                         Image(systemName: "circle.grid.2x2.fill")
                             .foregroundColor(.kPrimary)
                     }
-                    .padding()
+                    .padding(.horizontal)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(productList, id: \.id) { product in
@@ -43,7 +43,9 @@ struct HomePageView: View {
                                         .environmentObject(cartmanager) // + press, bag+
                                 }
                             }
-                        }.padding(.horizontal)
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 20)
                     }
                 }
                 
@@ -90,7 +92,7 @@ struct AppBar: View {
                     
                     + Text("Furniture")
                         .font(.largeTitle.bold())
-                        .foregroundStyle(.kPrimary)
+                        .foregroundStyle(.dark)
                 }
                 .lineLimit(nil)
             }

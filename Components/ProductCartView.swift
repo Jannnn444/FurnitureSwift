@@ -21,10 +21,11 @@ struct ProductCartView: View {
     
     var body: some View {
         ZStack {
-            Color(.kSecondary)
+//            Color(.kSecondary)
+            Color(.black)
                 
             ZStack(alignment: .bottomTrailing) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading ) {
                     Image(product.image)
                         .resizable()
                         .frame(width: 175, height: 160)
@@ -32,18 +33,19 @@ struct ProductCartView: View {
                     
                     Text(product.name)
                         .font(.headline)
-                        .foregroundStyle(.black)
+//                        .foregroundStyle(.black)
+                        .foregroundStyle(.white)
                         .padding(.vertical, 1)
                     
                     Text(product.supplier)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.light)
                         .font(.caption)
                         .padding(.vertical, 0.5)
                     
                     Text("$ \(product.price)")
                         .bold()
-                        .foregroundStyle(.black)
-                }
+                        .foregroundStyle(.white)
+                }.padding(.top, -10)
                     Button(action: {
                         cartManager.addToCart(product: product)
                         // This button would likely call cartManager.addToCart() in a real implementation
@@ -52,7 +54,7 @@ struct ProductCartView: View {
                     }, label: {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
-                            .foregroundColor(.kPrimary)
+                            .foregroundColor(.white)
                             .frame(width: 35, height: 35)
                             .padding(.trailing)
                     })

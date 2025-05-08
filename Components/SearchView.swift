@@ -19,14 +19,14 @@ struct SearchView: View {
                 TextField("Search For Furniture", text: $search)
                     .padding()
             }
-            .background(Color("kSecondary"))
+            .background(Color(.light))
             .cornerRadius(12)
             
             Image(systemName: "camera")
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.kPrimary)
-                .cornerRadius(12)
+                .background(Color.gray)
+                .cornerRadius(10)
         }
         .padding(.horizontal)
     }
