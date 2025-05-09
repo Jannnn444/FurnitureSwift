@@ -132,6 +132,7 @@ struct ProductDetailView: View {
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailView(product: productList[1])
+            .environmentObject(CartManager())
     }
 }
 

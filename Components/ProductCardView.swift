@@ -46,6 +46,7 @@ struct ProductCardView: View {
                 }.padding(.top, -10)
                     Button(action: {
                         cartManager.addToCart(product: product)
+                        
                         // This button would likely call cartManager.addToCart() in a real implementation
                         // Since all views share the same cartManager object, any changes made here
                         // would be visible to all other views using this EnvironmentObject
