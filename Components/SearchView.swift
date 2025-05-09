@@ -19,7 +19,7 @@ struct SearchView: View {
                 TextField("Search For Furniture", text: $search)
                     .padding()
             }
-            .background(Color(.light))
+            .background(Color(.kLighter))
             .cornerRadius(12)
             
             Image(systemName: "camera")

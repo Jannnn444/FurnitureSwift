@@ -33,7 +33,7 @@ struct HomePageView: View {
                             ProductsShowView()
                         }, label: {
                             Image(systemName: "circle.grid.2x2.fill")
-                                .foregroundColor(.kPrimary)
+                                .foregroundColor(.kPrimary2)
                         })
                     }
                     .padding(.horizontal)
@@ -41,11 +41,9 @@ struct HomePageView: View {
                         HStack(spacing: 10) {
                             ForEach(productList, id: \.id) { product in
                                 NavigationLink{
-                                    // inside the navigation UI
-//                                    Text(product.name)
                                     ProductDetailView(product: product)
                                 } label: {
-                                    ProductCartView(product: product)
+                                    ProductCardView(product: product)
                                         .environmentObject(cartmanager) // + press, bag+
                                 }
                             }
@@ -80,7 +78,7 @@ struct AppBar: View {
                     
                     Text("Shanghai, China")
                         .font(.title2)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.kLighter)
                     
                     Spacer()
                     
@@ -95,13 +93,15 @@ struct AppBar: View {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("Find the Most")
                         .font(.largeTitle.bold())
+                        .foregroundStyle(.gray)
                     
                     Text("Luxurios")
                         .font(.largeTitle.bold())
+                        .foregroundStyle(.gray)
                     
                     + Text("Furniture")
                         .font(.largeTitle.bold())
-                        .foregroundStyle(.dark)
+                        .foregroundStyle(.kPrimary2)
                 }
                 .lineLimit(nil)
             }

@@ -15,13 +15,13 @@ struct ProductsShowView: View {
             ScrollView {
                 LazyVGrid(columns: column, spacing: 20) {
                     ForEach(productList, id: \.id) { product in
-                        ProductCartView(product: product)
+                        ProductCardView(product: product)
                         
                     }
                 }
                 .padding()
             }
-            .navigationTitle(Text("All Furniture"))
+           
         }
     }
 }

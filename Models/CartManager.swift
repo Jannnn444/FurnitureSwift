@@ -15,6 +15,7 @@ class CartManager: ObservableObject {
     // but can be read from outside the class
     @Published private(set) var products: [Product] = []
     @Published private(set) var total: Int = 0
+    @Published private(set) var likedProducts: Set<UUID> = [] // Track liked products LIST[] by ID
     
     func addToCart(product: Product) {
         products.append(product)
@@ -24,6 +25,18 @@ class CartManager: ObservableObject {
     func removeFromCart(product: Product) {
         products = products.filter { $0.id != product.id }
         total -= product.price
+    }
+    
+    func toggleLike(for productId: UUID) {
+        if likedProducts.contains(productId) {
+            likedProducts.remove(productId)
+        } else {
+            likedProducts.insert(productId)
+        }
+    }
+    
+    func isLiked(productId: UUID) -> Bool {
+        return likedProducts.contains(productId)
     }
 }
 

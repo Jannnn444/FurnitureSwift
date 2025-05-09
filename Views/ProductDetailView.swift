@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductDetailView: View {
     var product: Product
+    @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         ScrollView {
@@ -19,13 +20,19 @@ struct ProductDetailView: View {
                             .resizable()
                             .frame(height: 300)
                         
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .padding(.top, 65)
-                            .padding(.trailing, 20)
+                        Button(action: {
+                            cartManager.toggleLike(for: product.id)
+                        }, label: {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .padding(.top, 65)
+                                .padding(.trailing, 20)
+                                .foregroundColor(cartManager.isLiked(productId: product.id) ? .red : .black)
+                        })
+                        
                     }.padding(.top, 0)
-                 
+                    
                     VStack(alignment: .leading) {
                         HStack {
                             Text(product.name)
@@ -61,12 +68,12 @@ struct ProductDetailView: View {
                             HStack {
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                     Image(systemName: "minus.square")
-                                        .foregroundColor(.kPrimary)
+                                        .foregroundColor(.kPrimary2)
                                 })
                                 Text("1")
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                     Image(systemName: "plus.square")
-                                        .foregroundColor(.kPrimary)
+                                        .foregroundColor(.kPrimary2)
                                 })
                             }
                         }

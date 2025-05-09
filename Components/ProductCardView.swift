@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProductCartView: View {
+struct ProductCardView: View {
     @EnvironmentObject var cartManager: CartManager
     var product : Product
     /*
@@ -21,8 +21,7 @@ struct ProductCartView: View {
     
     var body: some View {
         ZStack {
-//            Color(.kSecondary)
-            Color(.black)
+            Color(.kLighter)
                 
             ZStack(alignment: .bottomTrailing) {
                 VStack(alignment: .leading ) {
@@ -33,17 +32,17 @@ struct ProductCartView: View {
                     
                     Text(product.name)
                         .font(.headline)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                         .padding(.vertical, 1)
                     
                     Text(product.supplier)
-                        .foregroundStyle(.light)
+                        .foregroundStyle(.dark)
                         .font(.caption)
                         .padding(.vertical, 0.5)
                     
                     Text("$ \(product.price)")
                         .bold()
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black)
                 }.padding(.top, -10)
                     Button(action: {
                         cartManager.addToCart(product: product)
@@ -72,7 +71,7 @@ struct ProductCartView: View {
 // In the real app, this would be provided by a parent view
 
 #Preview {
-    ProductCartView(product: productList[0])
+    ProductCardView(product: productList[0])
         .environmentObject(CartManager())
 }
 

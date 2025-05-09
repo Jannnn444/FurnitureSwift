@@ -72,7 +72,7 @@ struct ContentView: View {
                 // If device has a bottom safe area (newer phones with notch/dynamic island), use (safeArea.bottom - 15)
                 // This ensures the tab bar looks good on all device types
                 .padding(.bottom, getSafeArea().bottom == 0 ? 5 : (getSafeArea().bottom - 15))
-                .background(Color.light)
+                .background(Color.dark)
             }
             ,
             alignment: .bottom
@@ -96,9 +96,9 @@ struct ContentView: View {
                     // Tab icon - shows filled version when selected, outline when not
                     Image(systemName: currentTab == tab ? tab.rawValue + ".fill" : tab.rawValue)
                         .resizable()
-                        .foregroundColor(Color.dark)
+                        .foregroundColor(Color.kLighter)
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25)
+                        .frame(width: 30, height: 30)
                         .frame(maxWidth: .infinity)
                         .background(
                             ZStack {
@@ -107,15 +107,16 @@ struct ContentView: View {
                                     // Blurred circle background effect behind the selected tab icon
                                     MaterialEffect(style: .light)
                                         .clipShape(Circle())
-                                        // This is the animation magic - it matches the geometry between states
-                                        // for smooth transitions when switching tabs
+                                        // Animation magic - it matches the geometry between states
+                                        // smooth switching tabs
                                         .matchedGeometryEffect(id: "Tab", in: animation)
                                     
                                     // Show tab name text only under the selected tab
-                                    Text(tab.Tabname)
-                                        .foregroundStyle(.gray)
+                                    Text("")    /*tab.Tabname*/
+                                        .foregroundStyle(.dark)
                                         .font(.footnote)
                                         .padding(.top, 50)
+                                        .padding(.bottom, 0) //10
                                 }
                             }
                         )
@@ -123,11 +124,11 @@ struct ContentView: View {
                         .contentShape(Rectangle())
                         // Move the selected tab icon up by 15 points for a raised effect
                         // Non-selected tabs remain at y-offset 0
-                        .offset(y: currentTab == tab ? -10 : 0)
+                        .offset(y: currentTab == tab ? -5 : 0)
                 }
             })
         }
-        .frame(height: 25)
+        .frame(height: 20)
     }
 }
 
