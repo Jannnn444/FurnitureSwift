@@ -93,7 +93,7 @@ struct ProductDetailView: View {
                             
                             Spacer()
                             
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .trailing) {
                                 Text("Colors")
                                     .font(.system(size: 18))
                                     .fontWeight(.semibold)
@@ -103,7 +103,7 @@ struct ProductDetailView: View {
                                     ColorDotView(color: .green)
                                 }
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                             }
                         .padding(.vertical)
                         PaymentButton(action: {})
