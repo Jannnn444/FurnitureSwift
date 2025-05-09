@@ -39,7 +39,7 @@ struct ProductDetailView: View {
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .padding(.horizontal)
-                                .background(Color.gray) //secondary
+                                .background(Color.kSecondary) //secondary
                                 .cornerRadius(12)
                         }
                         .padding(.vertical)
@@ -59,9 +59,19 @@ struct ProductDetailView: View {
                             .fontWeight(.medium)
                         
                         Text(product.description)
-                        
-                        HStack {
-                            
+                     
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading) {
+                                Text("Size")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.semibold)
+                                Text("Height: \(product.height)")
+                                    .foregroundStyle(.gray)
+                                Text("Width: \(product.width)")
+                                    .foregroundStyle(.gray)
+                                Text("Diameter: \(product.diameter)")
+                                    .foregroundStyle(.gray)
+                            }
                         }
                     }
                 }
