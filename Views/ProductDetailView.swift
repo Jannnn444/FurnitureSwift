@@ -43,7 +43,7 @@ struct ProductDetailView: View {
                         
                         HStack {
                             HStack(spacing: 10) {
-                                ForEach(0..<5) { index in
+                                 ForEach(0..<5) { index in
                                     Image(systemName: "star.fill")
                                         .resizable()
                                         .frame(width: 20, height: 20)
@@ -97,12 +97,11 @@ struct ProductDetailView: View {
                                 Text("Colors")
                                     .font(.system(size: 18))
                                     .fontWeight(.semibold)
-                                Text("Blue")
-                                    .foregroundStyle(.blue)
-                                Text("Black")
-                                    .foregroundStyle(.black)
-                                Text("Off-white")
-                                    .foregroundStyle(.gray)
+                                HStack {
+                                    ColorDotView(color: .blue)
+                                    ColorDotView(color: .black)
+                                    ColorDotView(color: .green)
+                                }
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             }
@@ -126,5 +125,14 @@ struct ProductDetailView: View {
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailView(product: productList[1])
+    }
+}
+
+struct ColorDotView: View {
+    var color: Color
+    var body: some View {
+        color
+            .frame(width: 25, height: 25)
+            .clipShape(Circle())
     }
 }
