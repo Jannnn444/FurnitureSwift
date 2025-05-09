@@ -37,7 +37,8 @@ struct HomePageView: View {
                             ForEach(productList, id: \.id) { product in
                                 NavigationLink{
                                     // inside the navigation UI
-                                    Text(product.name)
+//                                    Text(product.name)
+                                    ProductDetailView(product: product)
                                 } label: {
                                     ProductCartView(product: product)
                                         .environmentObject(cartmanager) // + press, bag+

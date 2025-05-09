@@ -13,13 +13,10 @@ struct ProductDetailView: View {
     var body: some View {
         ScrollView {
             ZStack {
-                Color.white
-                
                 VStack(alignment: .leading) {
                     ZStack(alignment: .topTrailing) {
                         Image(product.image)
                             .resizable()
-                            .ignoresSafeArea(edges: .top)
                             .frame(height: 300)
                         
                         Image(systemName: "heart.fill")
@@ -27,8 +24,8 @@ struct ProductDetailView: View {
                             .frame(width: 25, height: 25)
                             .padding(.top, 65)
                             .padding(.trailing, 20)
-                    }
-                    
+                    }.padding(.top, 0)
+                 
                     VStack(alignment: .leading) {
                         HStack {
                             Text(product.name)
@@ -39,7 +36,7 @@ struct ProductDetailView: View {
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .padding(.horizontal)
-                                .background(Color.kSecondary) //secondary
+                                .background(Color.kSecondary)
                                 .cornerRadius(12)
                         }
                         .padding(.vertical)
@@ -71,16 +68,43 @@ struct ProductDetailView: View {
                                     .foregroundStyle(.gray)
                                 Text("Diameter: \(product.diameter)")
                                     .foregroundStyle(.gray)
+                            }  
+                            .frame(width: .infinity, alignment: .leading)
+                            
+                            Spacer()
+                            
+                            VStack(alignment: .leading) {
+                                Text("Colors")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.semibold)
+                                Text("Blue")
+                                    .foregroundStyle(.blue)
+                                Text("Black")
+                                    .foregroundStyle(.black)
+                                Text("Off-white")
+                                    .foregroundStyle(.gray)
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        .padding(.vertical)
+                        PaymentButton(action: {})
+                            .frame(width: .infinity, height: 35)
                         }
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(20)
+                    .offset(y: -30)
                     }
                 }
             }
-        } .ignoresSafeArea(edges: .top)
+        .ignoresSafeArea(edges: .top)
+        .background(Color.white)
     }
 }
 
-#Preview {
-    ProductDetailView(product: productList[1])
-    
+
+struct ProductDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductDetailView(product: productList[1])
+    }
 }
