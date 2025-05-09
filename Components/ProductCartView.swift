@@ -33,7 +33,6 @@ struct ProductCartView: View {
                     
                     Text(product.name)
                         .font(.headline)
-//                        .foregroundStyle(.black)
                         .foregroundStyle(.white)
                         .padding(.vertical, 1)
                     
