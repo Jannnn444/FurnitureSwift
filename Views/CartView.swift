@@ -13,7 +13,9 @@ struct CartView: View {
         ScrollView {
             if cartManager.products.count > 0 {
                 ForEach(cartManager.products, id: \.id) { product in
-                ProductCartView(product: product)
+                CartProductView(product: product)
+                        .padding(.top, -10)
+                        .padding(.bottom, -10)
                 }
                 HStack {
                     Text("Your Total is ")

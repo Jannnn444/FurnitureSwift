@@ -80,7 +80,7 @@ struct AppBar: View {
                     
                     // NavigationLink ---> Navigation destination been set inside the CartView()
                     NavigationLink(destination: CartView()
-                        .environmentObject(CartManager())
+                        .environmentObject(cartManager)
                     ){
                         CartButton(numberOfProducts: cartManager.products.count)
                     }
