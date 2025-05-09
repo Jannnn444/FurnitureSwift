@@ -12,31 +12,39 @@ struct CartProductView: View {
     var product: Product
     var body: some View {
         HStack(spacing: 20) {
-            Image(product.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 70)
-                .cornerRadius(9)
-            VStack(alignment: .leading, spacing: 5) {
-                Text(product.name)
-                    .bold()
+            
+            
+            NavigationLink {
+                ProductDetailView(product: product)
+            } label: {
                 
-                Text("\(product.price)")
-                    .bold()
-            }
-            .padding()
-            Spacer()
-            Image(systemName: "trash")
-                .foregroundColor(.red)
-                .onTapGesture {
-                    cartManager.removeFromCart(product: product)
+                Image(product.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 70)
+                    .cornerRadius(9)
+                
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(product.name)
+                        .bold()
+                    
+                    Text("\(product.price)")
+                        .bold()
                 }
+                .padding()
+                Spacer()
+                Image(systemName: "trash")
+                    .foregroundColor(.red)
+                    .onTapGesture {
+                        cartManager.removeFromCart(product: product)
+                    }
+            }
+            .padding(.horizontal)
+            .background(Color.light)
+            .cornerRadius(12)
+            .frame(width: .infinity, alignment: .leading)
+            .padding()
         }
-        .padding(.horizontal)
-        .background(Color.light)
-        .cornerRadius(12)
-        .frame(width: .infinity, alignment: .leading)
-        .padding()
     }
 }
 
