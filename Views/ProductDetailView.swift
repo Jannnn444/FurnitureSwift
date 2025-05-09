@@ -40,18 +40,38 @@ struct ProductDetailView: View {
                                 .cornerRadius(12)
                         }
                         .padding(.vertical)
-                        HStack(spacing: 10) {
-                            ForEach(0..<5) { index in
-                                Image(systemName: "star.fill")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.yellow)
+                        
+                        HStack {
+                            HStack(spacing: 10) {
+                                ForEach(0..<5) { index in
+                                    Image(systemName: "star.fill")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(.yellow)
+                                }
+                                
+                                
+                                Text("(4.5)")
+                                    .foregroundStyle(.gray)
                             }
-                            Text("(4.5)")
-                                .foregroundStyle(.gray)
+                            .padding(.vertical)
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                    Image(systemName: "minus.square")
+                                        .foregroundColor(.kPrimary)
+                                })
+                                Text("1")
+                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                    Image(systemName: "plus.square")
+                                        .foregroundColor(.kPrimary)
+                                })
+                            }
                         }
-                        .padding(.vertical)
-                        Text("Description") // -> lets grt from model
+                       
+                        Text("Description")
                             .font(.title3)
                             .fontWeight(.medium)
                         
