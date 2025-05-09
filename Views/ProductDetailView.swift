@@ -50,7 +50,13 @@ struct ProductDetailView: View {
                                     .frame(width: 20, height: 20)
                                     .foregroundColor(.yellow)
                             }
+                            Text("(4.5)")
+                                .foregroundStyle(.gray)
                         }
+                        .padding(.vertical)
+                        Text("Description") // -> lets grt from model
+                            .font(.title3)
+                            .fontWeight(.medium)
                     }
                 }
             }
