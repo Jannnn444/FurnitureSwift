@@ -57,6 +57,12 @@ struct ProductDetailView: View {
                         Text("Description") // -> lets grt from model
                             .font(.title3)
                             .fontWeight(.medium)
+                        
+                        Text(product.description)
+                        
+                        HStack {
+                            
+                        }
                     }
                 }
             }
