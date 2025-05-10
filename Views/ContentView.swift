@@ -49,10 +49,11 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
                 .tag(Tab.Notifications)
-            Text("Cart view")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background()
+            
+            CartView()
                 .tag(Tab.Cart)
+                .environmentObject(cartManager)
+            
             Text("Profile view")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
