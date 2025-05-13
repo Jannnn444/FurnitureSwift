@@ -121,8 +121,8 @@
 		1EC024E42DC106FC00F77448 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1EC024E52DC1071200F77448 /* Product.swift */,
 				1EC024F32DC23BD900F77448 /* CartManager.swift */,
+				1EC024E52DC1071200F77448 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
