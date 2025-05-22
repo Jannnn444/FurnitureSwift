@@ -41,10 +41,8 @@ struct HomePageView: View {
                             HStack(spacing: 10) {
                                 ForEach(productList, id: \.id) { product in
                                     NavigationLink {
-                                        //destinaiton
                                         ProductDetailView(product: product)
                                     } label: {
-                                        //view
                                         ProductCardView(product: product)
                                             .environmentObject(cartmanager) // + press, bag+
                                     }
@@ -92,20 +90,31 @@ struct AppBar: View {
                     }
                     
                 }
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Find the Most")
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(.gray)
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Find the Most")
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(.gray)
+                        
+                        Text("Luxurios")
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(.gray)
+                        
+                        + Text("Furniture")
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(.kPrimary2)
+                    }
+                    .lineLimit(nil)
+                    Spacer()
                     
-                    Text("Luxurios")
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(.gray)
-                    
-                    + Text("Furniture")
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(.kPrimary2)
+                    VStack(alignment: .trailing) {
+                        Image(systemName: "arrow.clockwise")
+                        Spacer() // push it to the top 
+                         
+                    }
                 }
-                .lineLimit(nil)
+                
             }
             .padding()
             .environmentObject(CartManager())
