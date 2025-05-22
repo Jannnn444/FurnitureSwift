@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomePageView: View {
     @EnvironmentObject var cartmanager: CartManager
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
@@ -109,8 +110,20 @@ struct AppBar: View {
                     Spacer()
                     
                     VStack(alignment: .trailing) {
-                        Image(systemName: "arrow.clockwise")
-                        Spacer() // push it to the top 
+                        
+                        
+                        Button(action: {
+                            // refresh -> api
+                            // display -> notification
+                            
+                            cartManager.isHiddenNotification = false
+                        }) {
+                            Image(systemName: "arrow.clockwise")
+                        }
+                      
+                        
+                        
+                        Spacer() // push it to the top
                          
                     }
                 }
