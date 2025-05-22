@@ -11,54 +11,54 @@ struct HomePageView: View {
     @EnvironmentObject var cartmanager: CartManager
     var body: some View {
         NavigationStack {
-        ZStack(alignment: .top) {
-            Color.white
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                VStack(alignment: .leading) {
-                    AppBar().padding(.bottom,10)
-                    
-                    SearchView()
-                    
-                    ImageSliderView()
-                    
-                    HStack {
-                        Text("New Arrivals")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                        Spacer()
+            ZStack(alignment: .top) {
+                Color.white
+                    .edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    VStack(alignment: .leading) {
+                        AppBar().padding(.bottom,10)
                         
-                        NavigationLink(destination: {
-                            ProductsShowView()
-                        }, label: {
-                            Image(systemName: "circle.grid.2x2.fill")
-                                .foregroundColor(.kPrimary2)
-                        })
-                    }
-                    .padding(.horizontal)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(productList, id: \.id) { product in
-                                NavigationLink {
-                                    //destinaiton
-                                    ProductDetailView(product: product)
-                                } label: {
-                                    //view
-                                    ProductCardView(product: product)
-                                        .environmentObject(cartmanager) // + press, bag+
-                                }
-                            }
+                        SearchView()
+                        
+                        ImageSliderView()
+                        
+                        HStack {
+                            Text("New Arrivals")
+                                .font(.title2)
+                                .fontWeight(.medium)
+                            Spacer()
+                            
+                            NavigationLink(destination: {
+                                ProductsShowView()
+                            }, label: {
+                                Image(systemName: "circle.grid.2x2.fill")
+                                    .foregroundColor(.kPrimary2)
+                            })
                         }
                         .padding(.horizontal)
-                        .padding(.bottom, 20)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(productList, id: \.id) { product in
+                                    NavigationLink {
+                                        //destinaiton
+                                        ProductDetailView(product: product)
+                                    } label: {
+                                        //view
+                                        ProductCardView(product: product)
+                                            .environmentObject(cartmanager) // + press, bag+
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom, 20)
+                        }
                     }
+                    
                 }
                 
             }
-            
         }
-    }
     }
 }
 

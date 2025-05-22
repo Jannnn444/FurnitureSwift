@@ -32,7 +32,7 @@ struct ImageSliderView: View {
         }
         .padding()
         .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { timer in
+            Timer.scheduledTimer(withTimeInterval: 7, repeats: true) { timer in
                 // reset when it goes to the last one
                 if self.currentIndex + 1 == self.sliders.count {
                     self.currentIndex = 0
