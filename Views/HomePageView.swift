@@ -18,8 +18,13 @@ struct HomePageView: View {
                 
                 VStack {
                     VStack(alignment: .leading) {
-                        AppBar().padding(.bottom,10)
-                        
+                        ZStack {
+                            AppBar().padding(.bottom,10)
+                            if !cartmanager.isHiddenNotification {
+                                CustomNotificationBar()
+                                    .frame(width: 200, height: 50, alignment: .leading) // to be fixed!!
+                            }
+                        }
                         SearchView()
                         
                         ImageSliderView()
