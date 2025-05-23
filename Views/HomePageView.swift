@@ -108,7 +108,7 @@ struct AppBar: View {
                     NavigationLink(destination: CartView()
                         .environmentObject(cartManager)
                     ){
-                        CartButton(numberOfProducts: cartManager.products.count)
+                        CartButton(numberOfProducts: cartManager.cartItems.count)
                     }
                 }.padding(.top,40)
                 
