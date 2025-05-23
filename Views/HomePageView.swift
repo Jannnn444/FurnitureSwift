@@ -96,6 +96,14 @@ struct AppBar: View {
                     
                     Spacer()
                     
+                    Button(action: {
+                        cartManager.isHiddenNotification = false
+                        let currentTime = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
+                        cartManager.addNotification(message: "Data refreshed at \(currentTime)")
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                }
+                    
                     // NavigationLink ---> Navigation destination been set inside the CartView()
                     NavigationLink(destination: CartView()
                         .environmentObject(cartManager)
@@ -121,17 +129,21 @@ struct AppBar: View {
                         }
                         .lineLimit(nil)
                         Spacer()
-                              Button(action: {
-                                  // refresh -> api
-                                  // display -> notification
-                                  
-                                  cartManager.isHiddenNotification = false
-                                  let currentTime = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
-                                  cartManager.addNotification(message: "Data refreshed at \(currentTime)")
-                              }) {
-                                  Image(systemName: "arrow.clockwise")
-//                                Image(systemName: "bell.fill")
-                          }
+                        
+ // old place of old refresh data code
+                        /*               
+                         Button(action: {
+                         // refresh -> api
+                         // display -> notification
+                         
+                         cartManager.isHiddenNotification = false
+                         let currentTime = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
+                         cartManager.addNotification(message: "Data refreshed at \(currentTime)")
+                     }) {
+                  //     Image(systemName: "arrow.clockwise")
+                         Image(systemName: "bell.fill")
+                 }
+                         */
                       
                     }
                         
