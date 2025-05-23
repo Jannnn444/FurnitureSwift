@@ -21,6 +21,7 @@ struct ContentView: View {
      */
     @StateObject var cartManager = CartManager()
     @State var currentTab: Tab = .Home
+    @State var noties: [String] = []
 
     init() {
         // Hide "the default iOS tab bar" since we're creating a custom one !!
@@ -45,10 +46,10 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
                 .tag(Tab.Search)
-            Text("Notification view")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background()
+            
+            NotificationView(noties: noties)
                 .tag(Tab.Notifications)
+                .environmentObject(cartManager)
             
             CartView()
                 .tag(Tab.Cart)

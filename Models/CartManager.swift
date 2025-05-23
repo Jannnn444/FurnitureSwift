@@ -17,6 +17,7 @@ class CartManager: ObservableObject {
     @Published private(set) var total: Int = 0
     @Published private(set) var likedProducts: Set<UUID> = [] // Track liked products LIST[] by ID
     @Published var isHiddenNotification: Bool = true
+    @Published var notificationArray: Array = []
     
     func addToCart(product: Product) {
         products.append(product)
