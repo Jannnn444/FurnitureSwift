@@ -18,15 +18,9 @@ struct HomePageView: View {
                 
                 VStack {
                     VStack(alignment: .leading) {
-                        ZStack {
-                            AppBar().padding(.bottom,10)
-                            if !cartmanager.isHiddenNotification {
-                                CustomNotificationBar()
-                                    .frame(width: 200, height: 50, alignment: .leading) // to be fixed!!
-                            }
-                        }
-                        SearchView()
+                        AppBar().padding(.bottom,10)
                         
+                        SearchView()
                         ImageSliderView()
                         
                         HStack {
@@ -43,6 +37,7 @@ struct HomePageView: View {
                             })
                         }
                         .padding(.horizontal)
+                        
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 10) {
                                 ForEach(productList, id: \.id) { product in
@@ -57,10 +52,20 @@ struct HomePageView: View {
                             .padding(.horizontal)
                             .padding(.bottom, 20)
                         }
-                    }
-                    
+                    }.ignoresSafeArea()
                 }
                 
+                // Notification bar as overlay at the very top
+                if !cartmanager.isHiddenNotification {
+                    
+                    CustomNotificationBar()
+                        .frame(height: 100)
+                        .frame(maxWidth: .infinity)
+                        .cornerRadius(20)
+                        .ignoresSafeArea(.all, edges: .top)
+                        .zIndex(999)
+                    
+                }
             }
         }
     }

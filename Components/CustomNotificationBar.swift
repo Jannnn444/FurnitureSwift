@@ -11,13 +11,19 @@ import SwiftUI
 struct CustomNotificationBar: View {
     var body: some View {
         ZStack {
-            Color.gray.opacity(0.5)
+            Color.gray.opacity(0.8)
             HStack(alignment: .top) {
                 Text("Yee hi this is new static messages! ")
-                    .font(.headline.bold())
-                
-            }.frame(width: 200, height: 50, alignment: .leading)
-        }.ignoresSafeArea()
+                    .font(.subheadline.bold())
+                    .fontDesign(.serif)
+                    .foregroundColor(.white)
+                    .padding()
+                Spacer()
+            }
+            .padding(.top, 50)
+            .padding(.horizontal)
+        }
+        .frame(height: 100)
     }
 }
 
