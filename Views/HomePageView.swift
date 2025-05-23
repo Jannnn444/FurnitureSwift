@@ -57,13 +57,16 @@ struct HomePageView: View {
                 
                 // Notification bar as overlay at the very top
                 if !cartmanager.isHiddenNotification {
-                    
-                    CustomNotificationBar()
-                        .frame(height: 100)
-                        .frame(maxWidth: .infinity)
-                        .cornerRadius(20)
-                        .ignoresSafeArea(.all, edges: .top)
-                        .zIndex(999)
+                    Button(action: {
+                        cartmanager.isHiddenNotification = true
+                    }) {
+                        CustomNotificationBar()
+                            .frame(height: 100)
+                            .frame(maxWidth: .infinity)
+                            .cornerRadius(20)
+                            .ignoresSafeArea(.all, edges: .top)
+                            .zIndex(999)
+                    }
                     
                 }
             }
