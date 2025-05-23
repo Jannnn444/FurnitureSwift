@@ -8,12 +8,52 @@
 import SwiftUI
 
 struct NotificationView: View {
+    @EnvironmentObject var cartManager: CartManager
     var noties: [String] = []
     
     var body: some View {
-        Text("Here is the notification page")
-        ForEach(noties, id: \.self) { n in
-            Text(n)
+        NavigationView {
+            VStack {
+                if noties.isEmpty {
+                    Spacer()
+                    Text("No notifications")
+                        .foregroundColor(.gray)
+                        .font(.title2)
+                    Spacer()
+                } else {
+                    List {
+                        ForEach(noties, id: \.self) { notification in
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(notification)
+                                    .font(.body)
+                                Text("Just now")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding(.vertical, 5)
+                        }
+                        .onDelete(perform: deleteNotification)
+                    }
+                }
+            }
+            .navigationTitle("Notifications")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                if !noties.isEmpty {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Clear All") {
+                            cartManager.clearNotifications()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func deleteNotification(at offsets: IndexSet) {
+        cartManager.notificationArray.remove(atOffsets: offsets)
+        if cartManager.notificationArray.isEmpty {
+            cartManager.isHiddenNotification = true
         }
     }
 }

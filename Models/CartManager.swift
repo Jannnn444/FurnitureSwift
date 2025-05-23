@@ -2,22 +2,15 @@
 //  CartManager.swift
 //  FurnitureSwift
 //
-//  Created by Hualiteq International on 2025/4/30.
-//
 
 import Foundation
 
-// if anything changed we can know
-// ObservableObject allows SwiftUI to monitor this object for changes and update UI automatically
 class CartManager: ObservableObject {
-    // @Published properties notify observers (views) when their values change
-    // private(set) means these properties can only be modified within this class,
-    // but can be read from outside the class
     @Published private(set) var products: [Product] = []
     @Published private(set) var total: Int = 0
-    @Published private(set) var likedProducts: Set<UUID> = [] // Track liked products LIST[] by ID
+    @Published private(set) var likedProducts: Set<UUID> = []
     @Published var isHiddenNotification: Bool = true
-    @Published var notificationArray: Array = []
+    @Published var notificationArray: [String] = [] // Fixed name and type
     
     func addToCart(product: Product) {
         products.append(product)
@@ -40,12 +33,19 @@ class CartManager: ObservableObject {
     func isLiked(productId: UUID) -> Bool {
         return likedProducts.contains(productId)
     }
+    
+    // NEW: Add notification
+    func addNotification(message: String) {
+        notificationArray.insert(message, at: 0) // Add to beginning of array
+        isHiddenNotification = false // show the notification
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.isHiddenNotification = true
+        }
+    }
+    
+    // NEW: Clear all notifications
+    func clearNotifications() {
+        notificationArray.removeAll()
+        isHiddenNotification = true
+    }
 }
-
-/* Array Filtering Operation:
- 
- products.filter { $0.id != product.id } 
- creates a new array containing ONLY products whose IDs do NOT match the ID of the product being removed
- $0 is a shorthand for "Each item being considered in the filter operation"
- The filter returns a new array with all products EXCEPT the one being removed
- */

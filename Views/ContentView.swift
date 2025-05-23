@@ -9,45 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    // This line creates and manages the shared CartManager instance
-    
-    /*
-     Best Practice for CartManager
-     The best practice (which your code follows) is:
-
-     Create CartManager once using @StateObject in your app's main view (ContentView) ~~
-     Pass it down via .environmentObject(cartManager) from ContentView !!
-     Access it with @EnvironmentObject in all child views that need it ~~~
-     */
     @StateObject var cartManager = CartManager()
     @State var currentTab: Tab = .Home
-    @State var noties: [String] = []
+    @Namespace var animation
 
     init() {
-        // Hide "the default iOS tab bar" since we're creating a custom one !!
-        UITabBar.appearance().isHidden = true
+        UITabBar.appearance().isHidden = true     // Hide default iOS tab bar since we're creating a custom one !!
     }
-    
-    // Namespace for matched geometry effect animations
-    // This allows smooth transitions between different views/states
-    @Namespace var animation
     
     var body: some View {
         // Main TabView that handles switching between different tab content
         TabView(selection: $currentTab) {
-          
-            // Tab content views - currently just placeholder Text views
-            // Each view is tagged with its corresponding Tab enum case
-            
             HomePageView()
                 .environmentObject(cartManager)
+                .tag(Tab.Home)
             
             Text("Search view")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
                 .tag(Tab.Search)
-            
-            NotificationView(noties: noties)
+        
+            NotificationView(noties: cartManager.notificationArray)
                 .tag(Tab.Notifications)
                 .environmentObject(cartManager)
             
@@ -68,21 +50,25 @@ struct ContentView: View {
                     TabButton(tab: tab)
                 }
                 .padding(.vertical)
-                // COMPLEX PADDING EXPLANATION:
-                // This padding adjusts the bottom space for the tab bar based on the device's safe area
-                // If device has no bottom safe area (older phones with home button), use 5pt
-                // If device has a bottom safe area (newer phones with notch/dynamic island), use (safeArea.bottom - 15)
-                // This ensures the tab bar looks good on all device types
                 .padding(.bottom, getSafeArea().bottom == 0 ? 5 : (getSafeArea().bottom - 15))
                 .background(Color.dark)
-            }
-            ,
+            },
             alignment: .bottom
         )
         // Ignore safe area at the bottom to allow the tab bar to extend to the edge of the screen
         // This removes the default separator line that appears at the edge of safe areas
         .ignoresSafeArea(.all, edges: .bottom)
+        .onChange(of: cartManager.notificationArray.count) { _ in
+            if !cartManager.notificationArray.isEmpty {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                    withAnimation(.spring()) {
+                        currentTab = .Notifications
+//                    }
+                }
+            }
+        }
     }
+    // upfdate the item here we need, so as it fullfilled the animate and tab switch
     
     // Custom tab button view builder function
     func TabButton(tab: Tab) -> some View {
@@ -90,7 +76,7 @@ struct ContentView: View {
         GeometryReader{ proxy in
             Button(action: {
                 // Animate tab switching with spring animation for a bouncy effect
-                withAnimation(.spring()) {
+                withAnimation(.spring) {
                     currentTab = tab
                 }
             }, label: {

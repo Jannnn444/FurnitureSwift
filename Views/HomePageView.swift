@@ -50,7 +50,7 @@ struct HomePageView: View {
                                 }
                             }
                             .padding(.horizontal)
-                            .padding(.bottom, 20)
+//                            .padding(.bottom, 20)
                         }
                     }.ignoresSafeArea()
                 }
@@ -102,45 +102,41 @@ struct AppBar: View {
                     ){
                         CartButton(numberOfProducts: cartManager.products.count)
                     }
-                    
-                }
+                }.padding(.top,40)
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text("Find the Most")
-                            .font(.largeTitle.bold())
-                            .foregroundStyle(.gray)
-                        
-                        Text("Luxurios")
-                            .font(.largeTitle.bold())
-                            .foregroundStyle(.gray)
-                        
-                        + Text("Furniture")
-                            .font(.largeTitle.bold())
-                            .foregroundStyle(.kPrimary2)
-                    }
-                    .lineLimit(nil)
-                    Spacer()
-                    
-                    VStack(alignment: .trailing) {
-                        
-                        
-                        Button(action: {
-                            // refresh -> api
-                            // display -> notification
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Find the Most")
+                                .font(.largeTitle.bold())
+                                .foregroundStyle(.gray)
                             
-                            cartManager.isHiddenNotification = false
-                        }) {
-                            Image(systemName: "arrow.clockwise")
+                            Text("Luxurios")
+                                .font(.largeTitle.bold())
+                                .foregroundStyle(.gray)
+                            
+                            + Text("Furniture")
+                                .font(.largeTitle.bold())
+                                .foregroundStyle(.kPrimary2)
                         }
+                        .lineLimit(nil)
+                        Spacer()
+                              Button(action: {
+                                  // refresh -> api
+                                  // display -> notification
+                                  
+                                  cartManager.isHiddenNotification = false
+                                  let currentTime = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
+                                  cartManager.addNotification(message: "Data refreshed at \(currentTime)")
+                              }) {
+                                  Image(systemName: "arrow.clockwise")
+//                                Image(systemName: "bell.fill")
+                          }
                       
-                        
-                        
-                        Spacer() // push it to the top
-                         
                     }
-                }
+                        
                 
+                }
             }
             .padding()
             .environmentObject(CartManager())
