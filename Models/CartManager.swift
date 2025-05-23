@@ -10,7 +10,7 @@ class CartManager: ObservableObject {
     @Published private(set) var total: Int = 0
     @Published private(set) var likedProducts: Set<UUID> = []
     @Published var isHiddenNotification: Bool = true
-    @Published var notificationArray: [String] = [] // Fixed name and type
+    @Published var notificationArray: [String] = []
     
     func addToCart(product: Product) {
         products.append(product)
@@ -18,8 +18,10 @@ class CartManager: ObservableObject {
     }
     
     func removeFromCart(product: Product) {
-        products = products.filter { $0.id != product.id }
-        total -= product.price
+        if let index = products.firstIndex(where: { $0.id == product.id }) {
+            products = products.filter { $0.id != product.id }
+            total -= product.price
+        }
     }
     
     func toggleLike(for productId: UUID) {
