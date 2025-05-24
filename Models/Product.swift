@@ -17,6 +17,7 @@ struct Product: Identifiable {
     var width: String
     var height: String
     var diameter: String
+    var ratings: [Double]
 }
 
 var productList = [
@@ -27,7 +28,7 @@ var productList = [
             price: 350,
             width: "200 cm",
             height: "135 cm",
-            diameter: "185 cm"
+            diameter: "185 cm", ratings: [4.1, 4.3, 4.8]
            ),
     Product(name: "Sweet Couch",
             image: "fn2",
@@ -36,7 +37,7 @@ var productList = [
             price: 350,
             width: "210 cm",
             height: "135 cm",
-            diameter: "185 cm"
+            diameter: "185 cm", ratings: [4.1, 3.6, 4.8]
            ),
     Product(name: "Crocodile Couch",
             image: "fn3",
@@ -45,7 +46,7 @@ var productList = [
             price: 350,
             width: "220 cm",
             height: "135 cm",
-            diameter: "185 cm"
+            diameter: "185 cm", ratings: [4.1, 4.3, 4.8]
            ),
     Product(name: "Good Couch",
             image: "fn4",
@@ -54,7 +55,7 @@ var productList = [
             price: 350,
             width: "230 cm",
             height: "135 cm",
-            diameter: "185 cm"
+            diameter: "185 cm", ratings: [4.1, 2.3, 4.8]
            ),
     Product(name: "Dream Couch",
             image: "fn5",
@@ -63,7 +64,7 @@ var productList = [
             price: 350,
             width: "240 cm",
             height: "135 cm",
-            diameter: "185 cm"
+            diameter: "185 cm", ratings: [4.1, 4.3, 3]
            ),
     Product(name: "Niche Couch",
             image: "fn6",
@@ -72,6 +73,6 @@ var productList = [
             price: 350,
             width: "250 cm",
             height: "135 cm",
-            diameter: "185 cm"
+            diameter: "185 cm", ratings: [1, 4.3, 4.8]
            )
 ]
