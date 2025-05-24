@@ -240,12 +240,16 @@ struct CartView: View {
             .toolbar {
                 if !cartManager.cartItems.isEmpty {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Clear All") {
-                            withAnimation {
-                                cartManager.clearAllItems()
-                            }
-                        }
-                        .foregroundColor(.red)
+                       Button(action: {
+                           withAnimation {
+                               cartManager.clearAllItems()
+                           }
+                       }) {
+                         Text("Clear All")
+                               .font(.caption).bold()
+                               .fontDesign(.serif)
+                               .foregroundStyle(.red)
+                       }
                     }
                 }
             }
