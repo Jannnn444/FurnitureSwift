@@ -121,13 +121,13 @@ class CartManager: ObservableObject {
             let diff = abs(item - rating) // each 1.0, 1.5, 2.0 .... - rating
             if diff < smallestDifference {
                 smallestDifference = diff
-                cloestTier = item
+                closestTier = item
             }
         }
         // algorithm
         // 4.5 -> [0,0,0,0,1]
         
-        let completeIntPart = Int(floor(cloestTier))
+        let completeIntPart = Int(floor(closestTier))
         let fractionPart = closestTier - Double(completeIntPart)
         
         starArray = Array(repeating: 0, count: completeIntPart)

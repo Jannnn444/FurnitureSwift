@@ -51,21 +51,8 @@ struct ProductDetailView: View {
                         .padding(.vertical)
                         
                         HStack {
-                            HStack(spacing: 10) {
-                                let starArray = cartManager.starsCheck(ratings: product.ratings)
-                                let averageRating = cartManager.seperateRatings(ratings: product.ratings)
-                                ForEach(0..<starArray.count,id: \.self) { index in
-                                    Image(systemName: starArray[index] == 0 ? "star.fill" : "star.half.fill")
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                        .foregroundColor(.yellow)
-                                }
-                                Text("(\(String(format: "%.1f", averageRating)))")
-                                    .fontDesign(.serif)
-                                    .foregroundStyle(.gray)
-                            }
-                            .padding(.vertical)
-                            
+                                StarRatingView(product: product)
+                     
                             Spacer()
                             
                             HStack {
