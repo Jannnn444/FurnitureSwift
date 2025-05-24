@@ -18,6 +18,7 @@ struct NotificationView: View {
                     Spacer()
                     Text("No notifications")
                         .foregroundColor(.gray)
+                        .fontDesign(.serif)
                         .font(.title2)
                     Spacer()
                 } else {
@@ -25,9 +26,11 @@ struct NotificationView: View {
                         ForEach(noties, id: \.self) { notification in
                             VStack(alignment: .leading, spacing: 5) {
                                 Text(notification)
+                                    .fontDesign(.serif)
                                     .font(.body)
                                 Text("Just now")
                                     .font(.caption)
+                                    .fontDesign(.serif)
                                     .foregroundColor(.gray)
                             }
                             .padding(.vertical, 5)
@@ -38,6 +41,16 @@ struct NotificationView: View {
             }
             .navigationTitle("Notifications")
             .navigationBarTitleDisplayMode(.large)
+            
+            .onAppear {
+                UINavigationBar.appearance().largeTitleTextAttributes = [
+                    .font: UIFont.systemFont(ofSize: 34, weight: .bold).withDesign(.serif)
+                ]
+                UINavigationBar.appearance().titleTextAttributes = [
+                    .font: UIFont.systemFont(ofSize: 17, weight: .semibold).withDesign(.serif)
+                ]
+            }
+            
             .toolbar {
                 if !noties.isEmpty {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -55,5 +68,14 @@ struct NotificationView: View {
         if cartManager.notificationArray.isEmpty {
             cartManager.isHiddenNotification = true
         }
+    }
+}
+
+extension UIFont {
+    func withDesign(_ design: UIFontDescriptor.SystemDesign) -> UIFont {
+        guard let descriptor = self.fontDescriptor.withDesign(design) else {
+            return self
+        }
+        return UIFont(descriptor: descriptor, size: 0)
     }
 }

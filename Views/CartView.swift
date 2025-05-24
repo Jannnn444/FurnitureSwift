@@ -23,10 +23,12 @@ struct CartView: View {
                         
                         Text("Your cart is empty")
                             .font(.title2)
+                            .fontDesign(.serif)
                             .foregroundColor(.gray)
                         
                         Text("Add some products to get started!")
                             .font(.subheadline)
+                            .fontDesign(.serif)
                             .foregroundColor(.gray)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -78,14 +80,17 @@ struct CartView: View {
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text(cartItem.product.name)
                                             .font(.headline)
+                                            .fontDesign(.serif)
                                             .lineLimit(2)
                                         
                                         Text("$\(cartItem.product.price)")
                                             .font(.subheadline)
+                                            .fontDesign(.serif)
                                             .foregroundColor(.gray)
                                         
                                         Text("Subtotal: $\(cartItem.totalPrice)")
                                             .font(.caption)
+                                            .fontDesign(.serif)
                                             .foregroundColor(.blue)
                                             .fontWeight(.medium)
                                     }
@@ -110,6 +115,7 @@ struct CartView: View {
                                 VStack(spacing: 8) {
                                     Text("Qty")
                                         .font(.caption2)
+                                        .fontDesign(.serif)
                                         .foregroundColor(.gray)
                                     
                                     HStack(spacing: 8) {
@@ -129,6 +135,7 @@ struct CartView: View {
                                         
                                         // Quantity Display
                                         Text("\(cartItem.quantity)")
+                                            .fontDesign(.serif)
                                             .font(.headline)
                                             .fontWeight(.semibold)
                                             .frame(minWidth: 25)
@@ -172,19 +179,23 @@ struct CartView: View {
                             HStack {
                                 Text("Total Items:")
                                     .font(.subheadline)
+                                    .fontDesign(.serif)
                                 Spacer()
                                 Text("\(cartManager.productsCount)")
                                     .font(.subheadline)
+                                    .fontDesign(.serif)
                                     .fontWeight(.semibold)
                             }
                             
                             HStack {
                                 Text("Total Amount:")
                                     .font(.title3)
+                                    .fontDesign(.serif)
                                     .fontWeight(.medium)
                                 Spacer()
                                 Text("$\(cartManager.total)")
                                     .font(.title2)
+                                    .fontDesign(.serif)
                                     .fontWeight(.bold)
                                     .foregroundColor(.blue)
                             }
@@ -200,6 +211,7 @@ struct CartView: View {
                             HStack {
                                 Image(systemName: "creditcard")
                                 Text("Proceed to Checkout")
+                                    .fontDesign(.serif)
                                     .fontWeight(.semibold)
                             }
                             .foregroundColor(.white)
@@ -222,8 +234,9 @@ struct CartView: View {
                     .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: -2)
                 }
             }
-            .navigationTitle("Shopping Cart")
+            .navigationTitle("Shopping Cart") 
             .navigationBarTitleDisplayMode(.large)
+            
             .toolbar {
                 if !cartManager.cartItems.isEmpty {
                     ToolbarItem(placement: .navigationBarTrailing) {

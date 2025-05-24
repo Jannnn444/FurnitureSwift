@@ -17,6 +17,7 @@ struct SearchView: View {
                     .padding(.leading)
                 
                 TextField("Search For Furniture", text: $search)
+                    .fontDesign(.serif)
                     .padding()
             }
             .background(Color(.kLighter))

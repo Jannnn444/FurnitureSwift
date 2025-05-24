@@ -50,6 +50,12 @@ class CartManager: ObservableObject {
             updateTotal()
         }
         
+        // NEW: Remove entire item regardless of quantity
+        func removeEntireItem(product: Product) {
+            cartItems.removeAll { $0.product.id == product.id }
+            updateTotal()
+        }
+        
         // NEW: Update quantity directly
         func updateQuantity(for product: Product, quantity: Int) {
             if let index = cartItems.firstIndex(where: { $0.product.id == product.id }) {

@@ -25,6 +25,7 @@ struct ContentView: View {
                 .tag(Tab.Home)
             
             Text("Search view")
+                .fontDesign(.serif)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background()
                 .tag(Tab.Search)
@@ -39,6 +40,7 @@ struct ContentView: View {
             
             Text("Profile view")
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .fontDesign(.serif)
                 .background()
                 .tag(Tab.Profile)
         }
@@ -102,6 +104,7 @@ struct ContentView: View {
                                     // Show tab name text only under the selected tab
                                     Text("")    /*tab.Tabname*/
                                         .foregroundStyle(.dark)
+                                        .fontDesign(.serif)
                                         .font(.footnote)
                                         .padding(.top, 50)
                                         .padding(.bottom, 0) //10

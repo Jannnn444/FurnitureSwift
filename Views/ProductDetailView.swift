@@ -36,10 +36,12 @@ struct ProductDetailView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Text(product.name)
+                                .fontDesign(.serif)
                                 .font(.title2.bold())
                             Spacer()
                             
                             Text("$\(product.price).00")
+                                .fontDesign(.serif)
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .padding(.horizontal)
@@ -59,6 +61,7 @@ struct ProductDetailView: View {
                                 
                                 
                                 Text("(4.5)")
+                                    .fontDesign(.serif)
                                     .foregroundStyle(.gray)
                             }
                             .padding(.vertical)
@@ -71,6 +74,7 @@ struct ProductDetailView: View {
                                         .foregroundColor(.kPrimary2)
                                 })
                                 Text("1")
+                                    .fontDesign(.serif)
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                     Image(systemName: "plus.square")
                                         .foregroundColor(.kPrimary2)
@@ -80,20 +84,25 @@ struct ProductDetailView: View {
                        
                         Text("Description")
                             .font(.title3)
+                            .fontDesign(.serif)
                             .fontWeight(.medium)
                         
-                        Text(product.description)
+                        Text(product.description) .fontDesign(.serif)
                      
                         HStack(alignment: .top) {
                             VStack(alignment: .leading) {
                                 Text("Size")
                                     .font(.system(size: 18))
+                                    .fontDesign(.serif)
                                     .fontWeight(.semibold)
                                 Text("Height: \(product.height)")
+                                    .fontDesign(.serif)
                                     .foregroundStyle(.gray)
                                 Text("Width: \(product.width)")
+                                    .fontDesign(.serif)
                                     .foregroundStyle(.gray)
                                 Text("Diameter: \(product.diameter)")
+                                    .fontDesign(.serif)
                                     .foregroundStyle(.gray)
                             }  
                             .frame(width: .infinity, alignment: .leading)
@@ -103,6 +112,7 @@ struct ProductDetailView: View {
                             VStack(alignment: .trailing) {
                                 Text("Colors")
                                     .font(.system(size: 18))
+                                    .fontDesign(.serif)
                                     .fontWeight(.semibold)
                                 HStack {
                                     ColorDotView(color: .blue)

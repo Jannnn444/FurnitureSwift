@@ -32,16 +32,19 @@ struct ProductCardView: View {
                     
                     Text(product.name)
                         .font(.headline)
+                        .fontDesign(.serif)
                         .foregroundStyle(.black)
                         .padding(.vertical, 1)
                     
                     Text(product.supplier)
                         .foregroundStyle(.dark)
+                        .fontDesign(.serif)
                         .font(.caption)
                         .padding(.vertical, 0.5)
                     
                     Text("$ \(product.price)")
                         .bold()
+                        .fontDesign(.serif)
                         .foregroundStyle(.black)
                 }.padding(.top, -10)
                     Button(action: {

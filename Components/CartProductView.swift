@@ -27,10 +27,12 @@ struct CartProductView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(product.name)
                         .bold()
+                        .fontDesign(.serif)
                         .foregroundStyle(.black)
                     
                     Text("\(product.price)")
                         .bold()
+                        .fontDesign(.serif)
                         .foregroundStyle(.dark)
                 }
                 .padding()

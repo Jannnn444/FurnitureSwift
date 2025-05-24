@@ -26,6 +26,7 @@ struct HomePageView: View {
                         HStack {
                             Text("New Arrivals")
                                 .font(.title2)
+                                .fontDesign(.serif)
                                 .fontWeight(.medium)
                             Spacer()
                             
@@ -91,6 +92,7 @@ struct AppBar: View {
                     
                     Text("Shanghai, China")
                         .font(.title2)
+                        .fontDesign(.serif)
                         .foregroundStyle(.kLighter)
                     
                     Spacer()
@@ -116,14 +118,17 @@ struct AppBar: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Find the Most")
                                 .font(.largeTitle.bold())
+                                .fontDesign(.serif)
                                 .foregroundStyle(.gray)
                             
                             Text("Luxurios")
                                 .font(.largeTitle.bold())
+                                .fontDesign(.serif)
                                 .foregroundStyle(.gray)
                             
                             + Text("Furniture")
                                 .font(.largeTitle.bold())
+                                .fontDesign(.serif)
                                 .foregroundStyle(.kPrimary2)
                         }
                         .lineLimit(nil)
