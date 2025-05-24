@@ -12,9 +12,17 @@ struct ContentView: View {
     @StateObject var cartManager = CartManager()
     @State var currentTab: Tab = .Home
     @Namespace var animation
-
+    
     init() {
         UITabBar.appearance().isHidden = true     // Hide default iOS tab bar since we're creating a custom one !!
+
+        // globally change the navigationbar tab font
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 34, weight: .bold).withDesign(.serif)
+        ]
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 17, weight: .semibold).withDesign(.serif)
+        ]
     }
     
     var body: some View {
@@ -68,8 +76,7 @@ struct ContentView: View {
                         currentTab = .Notifications
                 }
             }
-        }
-        */
+        } */
     }
     
     // Custom tab button view builder function
@@ -217,4 +224,13 @@ The flow of data works like this:
 
 #Preview {
     ContentView()
+}
+
+extension UIFont {
+    func withDesign(_ design: UIFontDescriptor.SystemDesign) -> UIFont? {
+        guard let descriptor = self.fontDescriptor.withDesign(design) else {
+            return nil
+        }
+        return UIFont(descriptor: descriptor, size: 0)
+    }
 }

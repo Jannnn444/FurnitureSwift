@@ -41,16 +41,6 @@ struct NotificationView: View {
             }
             .navigationTitle("Notifications")
             .navigationBarTitleDisplayMode(.large)
-            
-            .onAppear {
-                UINavigationBar.appearance().largeTitleTextAttributes = [
-                    .font: UIFont.systemFont(ofSize: 34, weight: .bold).withDesign(.serif)
-                ]
-                UINavigationBar.appearance().titleTextAttributes = [
-                    .font: UIFont.systemFont(ofSize: 17, weight: .semibold).withDesign(.serif)
-                ]
-            }
-            
             .toolbar {
                 if !noties.isEmpty {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -71,11 +61,3 @@ struct NotificationView: View {
     }
 }
 
-extension UIFont {
-    func withDesign(_ design: UIFontDescriptor.SystemDesign) -> UIFont {
-        guard let descriptor = self.fontDescriptor.withDesign(design) else {
-            return self
-        }
-        return UIFont(descriptor: descriptor, size: 0)
-    }
-}
