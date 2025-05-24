@@ -10,15 +10,13 @@ struct CartItem: Identifiable {
     let id = UUID()
     let product: Product
     var quantity: Int
-    
     var totalPrice: Int {
         return product.price * quantity
     }
 }
 
-
 class CartManager: ObservableObject {
-    @Published private(set) var cartItems: [CartItem] = []
+    @Published var cartItems: [CartItem] = []
     @Published private(set) var total: Int = 0
     @Published private(set) var likedProducts: Set<UUID> = []
     @Published var isHiddenNotification: Bool = true
@@ -52,12 +50,6 @@ class CartManager: ObservableObject {
             updateTotal()
         }
         
-        // NEW: Remove entire item regardless of quantity
-        func removeEntireItem(product: Product) {
-            cartItems.removeAll { $0.product.id == product.id }
-            updateTotal()
-        }
-        
         // NEW: Update quantity directly
         func updateQuantity(for product: Product, quantity: Int) {
             if let index = cartItems.firstIndex(where: { $0.product.id == product.id }) {
@@ -88,15 +80,22 @@ class CartManager: ObservableObject {
         }
         
         func addNotification(message: String) {
-            notificationArray.insert(message, at: 0)
+            notificationArray.insert(message, at: 0)   //🌟
             isHiddenNotification = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.isHiddenNotification = true
-            } /* Here after jump the notification it hidden after 1s */
+            /* Here after jump the notification it hidden after 1s */
+            }
         }
         
         func clearNotifications() {
-            notificationArray.removeAll()
+            notificationArray.removeAll() //🌟
             isHiddenNotification = true
         }
+    
+    func clearAllItems() {
+        cartItems.removeAll()
+        updateTotal()
+    }
+    
     }

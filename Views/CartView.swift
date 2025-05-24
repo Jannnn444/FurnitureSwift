@@ -38,7 +38,9 @@ struct CartView: View {
                                 
                                 // PRODUCT IMAGE AND INFO - Tappable area for navigation
                                 HStack(spacing: 12) {
-                                    // Product Image
+                                    
+// Product Image when fetching from api
+                                    
 //                                    AsyncImage(url: URL(string: cartItem.product.image)) { phase in
 //                                        switch phase {
 //                                        case .success(let image):
@@ -64,6 +66,7 @@ struct CartView: View {
 //                                            EmptyView()
 //                                        }
 //                                    }
+                                    
                                     Image(cartItem.product.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
@@ -71,7 +74,7 @@ struct CartView: View {
                                         .clipped()
                                         .cornerRadius(8)
                                     
-                                    // Product Info
+                                    // Product Informatoins
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text(cartItem.product.name)
                                             .font(.headline)
@@ -89,6 +92,7 @@ struct CartView: View {
                                     
                                     Spacer()
                                 }
+                                
                                 // NAVIGATION GESTURE - Only on product info area
                                 .onTapGesture {
                                     // COMMENTED OUT FOR NOW - Uncomment when ready to add navigation
@@ -99,7 +103,7 @@ struct CartView: View {
                                 .background(
                                     RoundedRectangle(cornerRadius: 8)
                                         .fill(Color.clear)
-                                        .contentShape(Rectangle()) // Makes entire area tappable
+//                                        .contentShape(Rectangle()) // Makes entire area tappable
                                 )
                                 
                                 // QUANTITY CONTROLS - Separate from navigation area
@@ -225,7 +229,7 @@ struct CartView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Clear All") {
                             withAnimation {
-//                                clearAllItems()
+                                cartManager.clearAllItems()
                             }
                         }
                         .foregroundColor(.red)
@@ -245,11 +249,6 @@ struct CartView: View {
             }
         }
     }
-    
-//    private func clearAllItems() {
-//        cartManager.removeFromCart(product: <#T##Product#>)
-//        cartManager.total = 0
-//    }
 }
 
 // MARK: - Preview

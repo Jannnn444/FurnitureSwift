@@ -50,7 +50,6 @@ struct HomePageView: View {
                                 }
                             }
                             .padding(.horizontal)
-//                            .padding(.bottom, 20)
                         }
                     }.ignoresSafeArea()
                 }
@@ -129,25 +128,7 @@ struct AppBar: View {
                         }
                         .lineLimit(nil)
                         Spacer()
-                        
- // old place of old refresh data code
-                        /*               
-                         Button(action: {
-                         // refresh -> api
-                         // display -> notification
-                         
-                         cartManager.isHiddenNotification = false
-                         let currentTime = DateFormatter.localizedString(from: Date(), dateStyle: .none, timeStyle: .short)
-                         cartManager.addNotification(message: "Data refreshed at \(currentTime)")
-                     }) {
-                  //     Image(systemName: "arrow.clockwise")
-                         Image(systemName: "bell.fill")
-                 }
-                         */
-                      
                     }
-                        
-                
                 }
             }
             .padding()
