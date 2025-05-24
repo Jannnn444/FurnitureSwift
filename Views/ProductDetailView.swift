@@ -52,15 +52,15 @@ struct ProductDetailView: View {
                         
                         HStack {
                             HStack(spacing: 10) {
-                                 ForEach(0..<5) { index in
-                                    Image(systemName: "star.fill")
+                                let starArray = cartManager.starsCheck(ratings: product.ratings)
+                                let averageRating = cartManager.seperateRatings(ratings: product.ratings)
+                                ForEach(0..<starArray.count,id: \.self) { index in
+                                    Image(systemName: starArray[index] == 0 ? "star.fill" : "star.half.fill")
                                         .resizable()
                                         .frame(width: 20, height: 20)
                                         .foregroundColor(.yellow)
                                 }
-                                
-                                
-                                Text("(4.5)")
+                                Text("(\(String(format: "%.1f", averageRating)))")
                                     .fontDesign(.serif)
                                     .foregroundStyle(.gray)
                             }
