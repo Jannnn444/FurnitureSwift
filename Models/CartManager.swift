@@ -92,7 +92,7 @@ class CartManager: ObservableObject {
             isHiddenNotification = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.isHiddenNotification = true
-            }
+            } /* Here after jump the notification it hidden after 1s */
         }
         
         func clearNotifications() {
