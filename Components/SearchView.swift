@@ -23,7 +23,7 @@ struct SearchView: View {
             .background(Color(.kLighter))
             .cornerRadius(12)
             
-            Image(systemName: "camera")
+            Image(systemName: "magnifyingglass")
                 .padding()
                 .foregroundColor(.white)
                 .background(Color.gray)
