@@ -69,14 +69,14 @@ struct ContentView: View {
         // This removes the default separator line that appears at the edge of safe areas
         .ignoresSafeArea(.all, edges: .bottom)
         
-       /* This will jump to CartProductView when we press refresh arrow icon
+       // This will jump to CartProductView when we press refresh arrow icon
         .onChange(of: cartManager.notificationArray.count) { _ in
             if !cartManager.notificationArray.isEmpty {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         currentTab = .Notifications
                 }
             }
-        } */
+        } 
     }
     
     // Custom tab button view builder function

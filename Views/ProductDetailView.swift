@@ -52,7 +52,6 @@ struct ProductDetailView: View {
                         
                         HStack {
                                 StarRatingView(product: product)
-                     
                             Spacer()
                             
                             HStack {
