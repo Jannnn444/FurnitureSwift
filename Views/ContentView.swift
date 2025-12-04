@@ -49,7 +49,7 @@ struct ContentView: View {
                 .environmentObject(cartManager)
             
             
-            ProfileView()
+            ProfileView(authViewModel: AuthViewModel())
                 .tag(Tab.Profile)
                 .environmentObject(cartManager)
                 .environmentObject(authManager)

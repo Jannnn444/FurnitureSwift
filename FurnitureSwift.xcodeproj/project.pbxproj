@@ -44,6 +44,7 @@
 		1E2269912EE19A36000916EC /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		1E2269932EE19D02000916EC /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		1E2269952EE1A647000916EC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		1E2269992EE1B1C3000916EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1E44F2EB2DCE04F3004F5819 /* ProductsShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsShowView.swift; sourceTree = "<group>"; };
 		1E6EAC5A2DCA174F00634F1E /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		1E6EAC5D2DCA18BA00634F1E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		1EC024B22DC0CE2700F77448 /* FurnitureSwift */ = {
 			isa = PBXGroup;
 			children = (
+				1E2269992EE1B1C3000916EC /* Info.plist */,
 				1EC024B32DC0CE2700F77448 /* FurnitureSwiftApp.swift */,
 				1EC024B72DC0CE2800F77448 /* Assets.xcassets */,
 				1EC024B92DC0CE2800F77448 /* Preview Content */,
@@ -399,6 +401,9 @@
 				DEVELOPMENT_TEAM = N8Y82KS4Z7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FurnitureSwift/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +433,9 @@
 				DEVELOPMENT_TEAM = N8Y82KS4Z7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FurnitureSwift/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
