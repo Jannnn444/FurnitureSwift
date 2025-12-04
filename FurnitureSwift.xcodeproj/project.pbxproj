@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E2269872EE16F72000916EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2269862EE16F72000916EC /* ProfileView.swift */; };
+		1E2269892EE1709E000916EC /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2269882EE1709E000916EC /* AuthManager.swift */; };
 		1E44F2EC2DCE04F3004F5819 /* ProductsShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44F2EB2DCE04F3004F5819 /* ProductsShowView.swift */; };
 		1E6EAC5B2DCA174F00634F1E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EAC5A2DCA174F00634F1E /* CartButton.swift */; };
 		1E6EAC5E2DCA18BA00634F1E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EAC5D2DCA18BA00634F1E /* HomePageView.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		1E2269862EE16F72000916EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1E2269882EE1709E000916EC /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1E44F2EB2DCE04F3004F5819 /* ProductsShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsShowView.swift; sourceTree = "<group>"; };
 		1E6EAC5A2DCA174F00634F1E /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		1E6EAC5D2DCA18BA00634F1E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				1EC024F32DC23BD900F77448 /* CartManager.swift */,
 				1EC024E52DC1071200F77448 /* Product.swift */,
+				1E2269882EE1709E000916EC /* AuthManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				1EC438862DE07FF600193F19 /* NotificationView.swift in Sources */,
 				1EC024E62DC1071200F77448 /* Product.swift in Sources */,
 				1EC024B62DC0CE2700F77448 /* ContentView.swift in Sources */,
+				1E2269892EE1709E000916EC /* AuthManager.swift in Sources */,
 				1E6EAC622DCDA6E800634F1E /* CartView.swift in Sources */,
 				1E6EAC602DCDA49F00634F1E /* CartProductView.swift in Sources */,
 				1EC024B42DC0CE2700F77448 /* FurnitureSwiftApp.swift in Sources */,

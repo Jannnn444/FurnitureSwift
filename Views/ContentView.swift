@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var cartManager = CartManager()
+    @StateObject var authManager = AuthManager()
     @State var currentTab: Tab = .Home
     @Namespace var animation
     
@@ -47,11 +48,20 @@ struct ContentView: View {
                 .tag(Tab.Cart)
                 .environmentObject(cartManager)
             
-            Text("Profile view")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .fontDesign(.serif)
-                .background()
+            
+            ProfileView()
                 .tag(Tab.Profile)
+                .environmentObject(cartManager)
+                .environmentObject(authManager)
+            
+            /*
+             Text("Profile view")
+                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                 .fontDesign(.serif)
+                 .background()
+                 .tag(Tab.Profile)
+             */
+            
         }
         // Custom tab bar overlay at the bottom of the scree
         .overlay(
