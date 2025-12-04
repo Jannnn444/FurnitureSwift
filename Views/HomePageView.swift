@@ -121,7 +121,7 @@ struct AppBar: View {
                                 .fontDesign(.serif)
                                 .foregroundStyle(.gray)
                             
-                            Text("Luxurios")
+                            Text("Luxurious")
                                 .font(.largeTitle.bold())
                                 .fontDesign(.serif)
                                 .foregroundStyle(.gray)
