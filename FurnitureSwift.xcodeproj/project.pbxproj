@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E2269872EE16F72000916EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2269862EE16F72000916EC /* ProfileView.swift */; };
 		1E44F2EC2DCE04F3004F5819 /* ProductsShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44F2EB2DCE04F3004F5819 /* ProductsShowView.swift */; };
 		1E6EAC5B2DCA174F00634F1E /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EAC5A2DCA174F00634F1E /* CartButton.swift */; };
 		1E6EAC5E2DCA18BA00634F1E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EAC5D2DCA18BA00634F1E /* HomePageView.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E2269862EE16F72000916EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1E44F2EB2DCE04F3004F5819 /* ProductsShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsShowView.swift; sourceTree = "<group>"; };
 		1E6EAC5A2DCA174F00634F1E /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		1E6EAC5D2DCA18BA00634F1E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				1E9C54EC2DCDD30200FDF03C /* ProductDetailView.swift */,
 				1E44F2EB2DCE04F3004F5819 /* ProductsShowView.swift */,
 				1ED5C75D2DDF000A00F7A640 /* AppDelegate.swift */,
+				1E2269862EE16F72000916EC /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				1EC024EC2DC10C9200F77448 /* SearchView.swift in Sources */,
 				1ED5C7C82DDF36F400F7A640 /* CustomNotificationBar.swift in Sources */,
 				1EC024EA2DC10C8200F77448 /* ProductCardView.swift in Sources */,
+				1E2269872EE16F72000916EC /* ProfileView.swift in Sources */,
 				1E44F2EC2DCE04F3004F5819 /* ProductsShowView.swift in Sources */,
 				1EDB29072DE1FA4700C4418A /* StarRatingView.swift in Sources */,
 			);

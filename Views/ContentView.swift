@@ -26,7 +26,8 @@ struct ContentView: View {
     }
     
     var body: some View {
-        // Main TabView that handles switching between different tab content
+        // MARK: - TABS
+        // Main TabView handles switching between different tab content
         TabView(selection: $currentTab) {
             HomePageView()
                 .environmentObject(cartManager)
