@@ -164,7 +164,7 @@ enum Tab: String, CaseIterable {
         case .Cart:
             return "Cart"
         case .Profile:
-            return "Profile"
+            return "Profile" // add a login system
         }
     }
 }
