@@ -1,0 +1,121 @@
+//
+//  APIModel.swift
+//  FurnitureSwift
+//
+//  Created by Hualiteq International on 2025/12/4.
+//
+
+import Foundation
+
+struct SignUpRequest: Codable {
+    let email: String
+    let username: String
+    let password: String
+}
+
+
+struct SignUpResponse: Codable {
+    let message: String
+}
+
+struct SignInRequest: Codable {
+    let email: String
+    let password: String
+}
+
+struct SignInResponse: Codable {
+    let accessToken: String
+    let refreshToken: String
+    let user: User
+    
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+        case user
+    }
+}
+
+struct User: Codable, Identifiable {
+    let id: String
+    // let icon: Int
+    let email: String
+    let emailVerified: Bool
+    let isActive: Bool
+    let createdAt: String
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, email /*, icon*/
+        case emailVerified = "email_verified"
+        case isActive = "is_active"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}
+
+
+struct UserProfile: Codable, Identifiable {
+    let id: String
+    let userId: String
+    let username: String
+    let reputation: Int
+    let totalPlaytime: Int
+    let createdAt: String
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userId = "user_id"
+        case username, reputation
+        case totalPlaytime = "total_playtime"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}
+
+struct UserProfileUpdate: Codable {
+    let id: String?
+    let icon: Int?
+    let userId: String?
+    let username: String?
+    let reputation: Int?
+    let totalPlaytime: Int?
+    let createdAt: String?
+    let updatedAt: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, icon
+        case userId = "user_id"
+        case username, reputation
+        case totalPlaytime = "total_playtime"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}
+
+
+enum APIError: LocalizedError {
+    case invalidURL
+    case invalidResponse
+    case unauthorized
+    case serverError(String)
+    case decodingError
+    case noData
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "Invalid URL"
+        case .invalidResponse:
+            return "Invalid response from server"
+        case .unauthorized:
+            return "Unauthorized. Please log in again."
+        case .serverError(let message):
+            return message
+        case .decodingError:
+            return "Failed to decode response"
+        case .noData:
+            return "No data received"
+        }
+    }
+}

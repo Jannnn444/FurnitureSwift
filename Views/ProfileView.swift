@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var isLoggedIn = false
+    @ObservedObject var authViewModel: AuthViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,10 +20,35 @@ struct ProfileView: View {
                     // TODO: You design this part
                     // What should logged-in users see?
                     Text("Welcome Back")
-                        .font(.largeTitle.bold())
+                        .font(.title)
                         .fontDesign(.serif)
                         .foregroundStyle(.gray)
+                    Button(action: {
+                        // Action
+                        
+                    }) {
+                        Text("Log Out")
+                            .padding()
+                            .font(.caption)
+                            .fontDesign(.serif)
+                            .foregroundStyle(.white)
+                            .background(Color.gray)
+                            .cornerRadius(12)
+                    }
                     
+                    Button(action: {
+                        // Action
+                    }) {
+                        // UI
+                        Text("Link to personal email")
+                            .padding()
+                            .fontDesign(.serif)
+                            .font(.caption)
+                            .font(.caption)
+                            .foregroundStyle(.white)
+                            .background(Color.gray)
+                            .cornerRadius(12)
+                    }
                     // Shows Personal Datas
                     // Name
                     // email
@@ -34,7 +60,7 @@ struct ProfileView: View {
                     // Include your login button here
                     
                     Text("Hello please login for more personal service")
-                        .font(.largeTitle.bold())
+                        .font(.body)
                         .fontDesign(.serif)
                         .foregroundStyle(.gray)
                     
@@ -42,24 +68,30 @@ struct ProfileView: View {
                     // MARK: Login Button
                     Button(action: {
                         // Login
-                        isLoggedIn.toggle()
+                      
                     }) {
                         Text("Login Button")
-                            .font(.largeTitle.bold())
+                            .padding()
+                            .font(.caption)
                             .fontDesign(.serif)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.white)
+                            .background(Color.gray)
+                            .cornerRadius(12)
                     }
                     
                     // MARK: Sign Up Button
                     Button(action: {
                         // SignUP
+                        
                     }) {
                         Text("Sign Up Button")
-                            .font(.largeTitle.bold())
+                            .padding()
+                            .font(.caption)
                             .fontDesign(.serif)
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.white)
+                            .background(Color.gray)
+                            .cornerRadius(12)
                     }
-                    
                 }
             }
             .navigationTitle("Profile")

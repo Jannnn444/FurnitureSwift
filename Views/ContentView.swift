@@ -216,7 +216,7 @@ struct MaterialEffect: UIViewRepresentable {
 WHY @StateObject?
 ----------------
 1. @StateObject is used to create and manage an ObservableObject (CartManager) instance
-2. @StateObject ensures the CartManager is created ONCE and persists for the lifetime of ContentView
+2. @StateObject ensures the CartManager is created ONCE and persists for the lifetime of ContentView ★★★
 3. If we used @State instead, the CartManager would not be properly retained between view updates
 4. @StateObject is specifically designed for reference types (classes) that conform to ObservableObject
 
@@ -245,3 +245,29 @@ extension UIFont {
         return UIFont(descriptor: descriptor, size: 0)
     }
 }
+
+
+
+/* NOTE:
+ 
+ TODOS -
+ 
+ Notification/
+ 1. When cart didnt pay yet pop the notification
+ 2. When order been placed, pop the notification
+ 3. When coupons arrived, pop notification
+ 
+ LookUpView/
+ 1. Search all goods, keyword match it shows
+ 2. Sort by newest / oldest / high price / low price
+ 
+ */
+
+
+
+
+
+
+
+
+
