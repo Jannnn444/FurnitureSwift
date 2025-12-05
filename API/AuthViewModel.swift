@@ -27,7 +27,7 @@ class AuthViewModel: ObservableObject {
         succeedSignUpMessage = nil
         
         do {
-          let response = try await signUp(email: email, username: username, password: password)
+            let response = try await apiService.signUp(email: email, username: username, password: password)
             print("\(response)")
             isLoading = false
             succeedSignUpMessage = "Sign up succeeded"
