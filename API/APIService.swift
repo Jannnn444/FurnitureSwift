@@ -10,7 +10,8 @@ import SwiftUI
 
 class APIService {
     static let shared = APIService()
-    private let baseURL = "http://\(officeIP):4333"
+//    private let baseURL = "http://\(officeIP):4333"
+    private let baseURL = "http://\(krantiIP):4334"
     
     private let keychainManager = KeychainManager.shared
     private init() {}
@@ -33,6 +34,7 @@ class APIService {
     }
     
     // MARK: Network Request Helper
+    
     private func performRequest<T: Decodable>(
         endpoint: String,
         method: String,
@@ -56,21 +58,48 @@ class APIService {
         
         let (data, response) = try await URLSession.shared.data(for: request)
         
+
         guard let httpResponse  = response as? HTTPURLResponse else {
             throw APIError.invalidResponse
         }
+        
+        // decode message
+        
+        // check whats in response, even when there's an error there is still a message
+        
+        // error case - log message when error
+        
+        // throw error - if message has error
+        
+        // success case - log success response
+        // return success data
+
+        
         switch httpResponse.statusCode {
         case 200...299:
             do {
                 let decoder = JSONDecoder()
                 return try decoder.decode(T.self, from: data)
+                
             } catch {
                 print("Decoding error: \(error)")
                 throw APIError.decodingError
             }
             
+        case 400:
+            print("API errored when attempting to fetch.")
+            
+            // decode JSON Error Model
+            let decoder = JSONDecoder()
+            try decoder.decode(Error.self, from: data)
+            
+            // TODO: incorrect api error status
+            throw APIError.unauthorized
+            
         case 401:
             throw APIError.unauthorized
+        case 500:
+            throw APIError.invalidURL
         default:
             if let errorMessage = String(data: data, encoding: .utf8) {
                 throw APIError.serverError(errorMessage)

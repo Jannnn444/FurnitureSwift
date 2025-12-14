@@ -9,6 +9,7 @@ import Foundation
 
 let mobileIP = "172.20.10.11"
 let officeIP = "10.2.201.208"
+let krantiIP = "172.20.10.11"
 
 
 // Digital Ocean Server

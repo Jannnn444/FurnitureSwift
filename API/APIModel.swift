@@ -35,6 +35,11 @@ struct SignInResponse: Codable {
     }
 }
 
+struct Error: Codable {
+    let message: String
+    let statusCode: Int
+}
+
 struct User: Codable, Identifiable {
     let id: String
     // let icon: Int
